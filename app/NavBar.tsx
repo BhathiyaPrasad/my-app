@@ -4,11 +4,12 @@ import Link from "next/link";
 import { FaBug } from "react-icons/fa";
 import { linkSync } from "fs";
 import { usePathname } from "next/navigation";
+import classNames from "classnames";
 const NavBar = () => {
   const currentPath = usePathname();
-  console.log(currentPath);
+                     
   const link = [
-    { label: "Dashbaord", href: "/" },
+    { label: "Dashboard", href: "/" },
     { label: "Issues", href: "/issues" },
   ];
 
@@ -19,16 +20,20 @@ const NavBar = () => {
       </Link>
       <ul className="flex space-x-6">
         {link.map((link) => (
-          <li>
-            {" "}
-            <Link
+          
+             <Link
               key={link.href}
-              className="text-zinc-500 hover:text-zinc-800 transition-colors"
+              className={classNames({
+                'text-zinc-900':link.href === currentPath,
+                'text-zinc-500':link.href !== currentPath,
+                'hover:text-zinc-800 transition-colors': true
+
+              })}
               href={link.href}
             >
               {link.label}
             </Link>
-          </li>
+         
         ))}
       </ul>
     </nav>
