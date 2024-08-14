@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en" data-theme="winter">
       <body className={inter.className}>
         <Theme><NavBar />
-        <main>{children}</main>
+        <main className='p-5'>{children}</main>
         </Theme>
       </body>
     </html>
