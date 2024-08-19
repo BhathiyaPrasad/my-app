@@ -18,8 +18,9 @@ function NewIssuePage() {
   const { register, control, handleSubmit } = useForm<IssueForm>();
   const router  = useRouter()
  const onSubmit = async (data: IssueForm) => {
-  await axios.post("/api/issue", data);
- router.push('./issues')
+  router.push('/issues')
+  await axios.post("/api/issues", data);
+ 
 };
   return (
     <form className="max-w-xl space-y-3" onSubmit={handleSubmit(onSubmit)}>
